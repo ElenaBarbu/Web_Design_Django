@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif; /*folosesti aceasta familie din google fonts*/
+} /*pentru a seta margin si padding de la default settings la 0*/
+
+body{
+    min-height: 100vh; /*pentru a ne asigura ca contentul nostru ocupa intregul ecran*/
+    background-image: linear-gradient(rgba(198, 196, 195, 0.5),rgba(198, 196, 195, 0.5)),url(Images/Home/background.jpg);/*pentru a introduce imaginea din background*/
+    background-size: cover; /*the image covers the entire container*/
+    background-repeat: no-repeat; /*nu se repeta imaginea*/
+    background-position: center; /*pui imaginea in centrul ecranului*/
+
+}
+
+nav{
+    background-color: rgba(255,255,255,0.9); 
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1); /*box-shadow effect pentru a arata mai bine*/   
+}
+
+nav ul{
+    width: 10; /*to make it expand the full width of it's container*/
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} /* CAUTA INFORMATII DESPRE FLEX*/
+
+nav li{
+    height: 50px;
+} /*nav li de la navigation list items. Orice navigation item reprezinta un navigation link*/ 
+/*nu ai declarat marimea nav bar-ului pentru ca acesta sa ia marimea list items-urilor sa defineasca marimea parintilor lor (adica a nav bar) */
+
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none; /*pentru a trage underline*/
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+nav a:hover{
+    background-color:#dcdcdc ; /*pentru a da efect atunci cand aduci mouse-ul in fata item-ului*/ 
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh; /*tot ecranul*/
+    width: 250px;
+    z-index: 999; /*pentru a ne asigura ca se gaseste deasupra*/
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+
+    box-shadow: -10px 0 10px rgba(0,0,0,0.1) ;
+
+    /*pentru a pune items pe verticala*/
+    display: none; /*ca sa nu apara atunci cand nu este apasat butonul de meniu*/
+    flex-direction: column;
+    align-items: flex-start; /*le aliniaza*/
+    justify-content: flex-start; /*le pune sus*/
+
+}/*sidebar akopera tot si se afla in dreapta*/
+
+.sidebar li{
+    width: 100%;
+}
+.sidebar a{
+    width: 100%;
+}
+
+.menuButton{
+    display: none;
+} /*nu vrem sa ne apara menu button pe ecranele mari*/
+
+@media(max-width:700px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menuButton{
+        display: block; /* vrem sa ne apara menu button pe ecranele mai mici*/
+    }
+}
+    /*orice element care apartine clasei hideOnMobile o sa dispara atunci cand latimea ecranului este mai mica decat 700px*/
+
+@media(max-width: 400px){
+    .sidebar{
+        width:100%;
+    }
+}/*cand intram de la telefon si are latimea <=400px atunci vrem ca sidebar sa ocupe tot ecranul*/
+
+
+
+
+.container{
+  position: relative;
+  min-height: 100vh;
+ /* background-color: rgba(253, 226, 211, 0.873);*/
+}
+
+h1{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: rgb(65, 61, 57);
+}
+
+.container .image-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:15px;
+  justify-content: center;
+  padding:10px;
+}
+
+.container .image-container .image{
+  height:250px;
+  width:350px;
+  border:10px solid rgba(240, 232, 228, 0.9);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.container .image-container .image img{
+  height:100%;
+  width:100%;
+  object-fit:cover;
+  transition: .2s linear;
+}
+
+.container .image-container .image:hover img{
+  transform:scale(1.1);
+}
+
+.container .popup-image{
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: rgba(0,0,0,0.9);
+  height:100%;
+  width:100%;
+  z-index:100;
+  display:none;
+}
+
+.container .popup-image span{
+  position:absolute;
+  top:0;
+  right:10px;
+  font-size:40px;
+  font-weight:bolder;
+  color:rgba(255,255,255,0.9);
+  cursor:pointer;
+}
+
+.container .popup-image img{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  border:5px solid rgba(255,255,255,0.9);
+  border-radius:5px;
+  width:750px;
+  object-fit:cover;
+}
+
+@media(max-width:770px){
+  .container .popup-image img{
+    width:95%;
+  }
+}
+

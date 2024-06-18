@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif; /*folosesti aceasta familie din google fonts*/
+} /*pentru a seta margin si padding de la default settings la 0*/
+
+body{
+    min-height: 100vh; /*pentru a ne asigura ca contentul nostru ocupa intregul ecran*/
+    background-image: linear-gradient(rgba(198, 196, 195, 0.5),rgba(198, 196, 195, 0.5)),url(Images/Home/background.jpg);/*pentru a introduce imaginea din background*/
+    background-size: cover; /*the image covers the entire container*/
+    background-repeat: no-repeat; /*nu se repeta imaginea*/
+    background-position: center; /*pui imaginea in centrul ecranului*/
+}
+
+nav{
+    background-color: rgba(255,255,255,0.9); 
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1); /*box-shadow effect pentru a arata mai bine*/   
+}
+
+nav ul{
+    width: 10; /*to make it expand the full width of it's container*/
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} /* CAUTA INFORMATII DESPRE FLEX*/
+
+nav li{
+    height: 50px;
+} /*nav li de la navigation list items. Orice navigation item reprezinta un navigation link*/ 
+/*nu ai declarat marimea nav bar-ului pentru ca acesta sa ia marimea list items-urilor sa defineasca marimea parintilor lor (adica a nav bar) */
+
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none; /*pentru a trage underline*/
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+nav a:hover{
+    background-color:#dcdcdc ; /*pentru a da efect atunci cand aduci mouse-ul in fata item-ului*/ 
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh; /*tot ecranul*/
+    width: 250px;
+    z-index: 999; /*pentru a ne asigura ca se gaseste deasupra*/
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+
+    box-shadow: -10px 0 10px rgba(0,0,0,0.1) ;
+
+    /*pentru a pune items pe verticala*/
+    display: none; /*ca sa nu apara atunci cand nu este apasat butonul de meniu*/
+    flex-direction: column;
+    align-items: flex-start; /*le aliniaza*/
+    justify-content: flex-start; /*le pune sus*/
+
+}/*sidebar akopera tot si se afla in dreapta*/
+
+.sidebar li{
+    width: 100%;
+}
+.sidebar a{
+    width: 100%;
+}
+
+.menuButton{
+    display: none;
+} /*nu vrem sa ne apara menu button pe ecranele mari*/
+
+@media(max-width:700px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menuButton{
+        display: block; /* vrem sa ne apara menu button pe ecranele mai mici*/
+    }
+}
+    /*orice element care apartine clasei hideOnMobile o sa dispara atunci cand latimea ecranului este mai mica decat 700px*/
+
+@media(max-width: 400px){
+    .sidebar{
+        width:100%;
+    }
+}/*cand intram de la telefon si are latimea <=400px atunci vrem ca sidebar sa ocupe tot ecranul*/
+
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+  
+/*----------------Healthcare- Blood presure---------------------------------*/
+.healthcare-page-title{
+    margin:30px;
+    font-weight: 800;
+    color:rgba(58, 58, 57, 1);
+    width:90%;
+    word-break:keep-all; /*pentru a muta tot cuvantul in urmatorul rand*/
+    text-align: center;
+}
+
+.healthcare-blood-pressure-container{
+    display:flex;
+    height:30%; /* POATE TREBUIE MODIFICAT*/
+    /* flex-direction: column; pentru a pune tabelul in centrul paginiii?? */
+    align-items: center; /*aliniaza pe verticala*/
+    justify-content: center; 
+    margin-bottom: 2%; 
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.blood-pressure-tabel{
+    border-collapse: collapse;/*lasa mai putin spatiu intre celule*/
+    align-items: center;
+    margin:25px auto;
+    font-size:0.9em;
+    min-width:400px;
+    
+}
+
+.healthcare-blood-pressure2-container{
+    display:flex;
+    height:30%; /* POATE TREBUIE MODIFICAT*/
+    width:100%;
+    min-width: 400px;
+    flex-direction: row; 
+    align-items: center; /*aliniaza pe verticala*/
+    justify-content: center; 
+    margin-bottom: 2%;
+}
+.blood-pressure-tabel thead tr{
+    color:rgb(98, 20, 4);
+    text-align: left;
+    font-weight: bold;
+}
+.blood-pressure-tabel th,
+.blood-pressure-tabel td{
+    padding: 12px 15px;
+}
+
+.blood-pressure-tabel th{
+    background-color: rgba(255, 255, 255, 0.7);
+
+}
+
+.blood-pressure-tabel tbody tr{
+    border-bottom: 1px solid #dddd;
+}
+.blood-pressure-tabel tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+.blood-pressure-tabel tbody tr:nth-of-type(odd){
+    background-color: rgba(237, 211, 201,0.7);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

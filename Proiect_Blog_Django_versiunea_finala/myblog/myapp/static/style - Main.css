@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif; /*folosesti aceasta familie din google fonts*/
+} /*pentru a seta margin si padding de la default settings la 0*/
+
+body{
+    min-height: 100vh; /*pentru a ne asigura ca contentul nostru ocupa intregul ecran*/
+    background-image: linear-gradient(rgba(198, 196, 195, 0.5),rgba(198, 196, 195, 0.5)),url(Images/Home/background.jpg);/*pentru a introduce imaginea din background*/
+    background-size: cover; /*the image covers the entire container*/
+    background-repeat: no-repeat; /*nu se repeta imaginea*/
+    background-position: center; /*pui imaginea in centrul ecranului*/
+}
+
+nav{
+    background-color: rgba(255,255,255,0.9); 
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1); /*box-shadow effect pentru a arata mai bine*/   
+}
+
+nav ul{
+    width: 10; /*to make it expand the full width of it's container*/
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} /* CAUTA INFORMATII DESPRE FLEX*/
+
+nav li{
+    height: 50px;
+} /*nav li de la navigation list items. Orice navigation item reprezinta un navigation link*/ 
+/*nu ai declarat marimea nav bar-ului pentru ca acesta sa ia marimea list items-urilor sa defineasca marimea parintilor lor (adica a nav bar) */
+
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none; /*pentru a trage underline*/
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+nav a:hover{
+    background-color:#dcdcdc ; /*pentru a da efect atunci cand aduci mouse-ul in fata item-ului*/ 
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh; /*tot ecranul*/
+    width: 250px;
+    z-index: 999; /*pentru a ne asigura ca se gaseste deasupra*/
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+
+    box-shadow: -10px 0 10px rgba(0,0,0,0.1) ;
+
+    /*pentru a pune items pe verticala*/
+    display: none; /*ca sa nu apara atunci cand nu este apasat butonul de meniu*/
+    flex-direction: column;
+    align-items: flex-start; /*le aliniaza*/
+    justify-content: flex-start; /*le pune sus*/
+
+}/*sidebar akopera tot si se afla in dreapta*/
+
+.sidebar li{
+    width: 100%;
+}
+.sidebar a{
+    width: 100%;
+}
+
+.menuButton{
+    display: none;
+} /*nu vrem sa ne apara menu button pe ecranele mari*/
+
+@media(max-width:700px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menuButton{
+        display: block; /* vrem sa ne apara menu button pe ecranele mai mici*/
+    }
+}
+    /*orice element care apartine clasei hideOnMobile o sa dispara atunci cand latimea ecranului este mai mica decat 700px*/
+
+@media(max-width: 400px){
+    .sidebar{
+        width:100%;
+    }
+}/*cand intram de la telefon si are latimea <=400px atunci vrem ca sidebar sa ocupe tot ecranul*/
+
+
+/*---------------postarile din main--------------------*/
+.main-title{
+    margin-top:30px;
+    font-weight: 800;
+    color:rgba(58, 58, 57, 1);
+    /*width:90%;*/
+    word-break:keep-all; /*pentru a muta tot cuvantul in urmatorul rand*/
+    text-align: center;
+}
+.main-title{animation:fadeIn 2s;}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+.post-row{
+    margin-top:5%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+} /*randul pe care vor fi puse posturile*/
+
+.posts{
+    width:95%;/*el a pus 80%*/
+    margin:auto;
+    text-align: center;
+    padding-top:20px;
+}
+.post-col{
+    flex-basis: 31%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+    background-color: rgba(255,255,255,0.7);
+    transition:0.5s;
+}
+
+.post-col:hover{
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.7);
+}
+.post-col img{
+    width: 100%;
+    height: 75%;
+    border-radius: 10px;
+}
+.post-col-text{
+    margin-top:16px;
+    margin-bottom: 15px;
+    text-align: center;
+    align-items: center;
+    transition:0.3s;
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+
+}
+.post-col{animation:fadeIn 2s;}
+.post-col-text:hover{
+    color: rgb(33, 30, 79);
+    text-decoration: underline;
+}
+@media(max-width:700px){
+    .post-row{
+        flex-direction: column;
+    }
+}
+
+

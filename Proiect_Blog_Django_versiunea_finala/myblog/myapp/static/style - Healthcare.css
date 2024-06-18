@@ -1,0 +1,362 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif; /*folosesti aceasta familie din google fonts*/
+    box-sizing:border-box;
+} /*pentru a seta margin si padding de la default settings la 0*/
+
+body{
+    min-height: 100vh; /*pentru a ne asigura ca contentul nostru ocupa intregul ecran*/
+    background-image: linear-gradient(rgba(198, 196, 195, 0.5),rgba(198, 196, 195, 0.5)),url(Images/Home/background.jpg);/*pentru a introduce imaginea din background*/
+    background-size: cover; /*the image covers the entire container*/
+    background-repeat: no-repeat; /*nu se repeta imaginea*/
+    background-position: center; /*pui imaginea in centrul ecranului*/
+}
+
+
+
+nav{
+    background-color: rgba(255,255,255,0.9); 
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1); /*box-shadow effect pentru a arata mai bine*/   
+}
+
+nav ul{
+    width: 10; /*to make it expand the full width of it's container*/
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} /* CAUTA INFORMATII DESPRE FLEX*/
+
+nav li{
+    height: 50px;
+} /*nav li de la navigation list items. Orice navigation item reprezinta un navigation link*/ 
+/*nu ai declarat marimea nav bar-ului pentru ca acesta sa ia marimea list items-urilor sa defineasca marimea parintilor lor (adica a nav bar) */
+
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none; /*pentru a trage underline*/
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+nav a:hover{
+    background-color:#dcdcdc ; /*pentru a da efect atunci cand aduci mouse-ul in fata item-ului*/ 
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh; /*tot ecranul*/
+    width: 250px;
+    z-index: 999; /*pentru a ne asigura ca se gaseste deasupra*/
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+
+    box-shadow: -10px 0 10px rgba(0,0,0,0.1) ;
+
+    /*pentru a pune items pe verticala*/
+    display: none; /*ca sa nu apara atunci cand nu este apasat butonul de meniu*/
+    flex-direction: column;
+    align-items: flex-start; /*le aliniaza*/
+    justify-content: flex-start; /*le pune sus*/
+
+}/*sidebar akopera tot si se afla in dreapta*/
+
+.sidebar li{
+    width: 100%;
+}
+.sidebar a{
+    width: 100%;
+}
+
+.menuButton{
+    display: none;
+} /*nu vrem sa ne apara menu button pe ecranele mari*/
+
+@media(max-width:700px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menuButton{
+        display: block; /* vrem sa ne apara menu button pe ecranele mai mici*/
+    }
+}
+    /*orice element care apartine clasei hideOnMobile o sa dispara atunci cand latimea ecranului este mai mica decat 700px*/
+
+@media(max-width: 400px){
+    .sidebar{
+        width:100%;
+    }
+}/*cand intram de la telefon si are latimea <=400px atunci vrem ca sidebar sa ocupe tot ecranul*/
+
+
+
+
+/*------------------------------Healthcare section---------------------------------*/
+.healthcare-page-title{
+    margin:30px;
+    font-weight: 800;
+    color:rgba(58, 58, 57, 1);
+    width:90%;
+    word-break:keep-all; /*pentru a muta tot cuvantul in urmatorul rand*/
+    text-align: center;
+}
+
+
+.healthcare-page-title{animation:fadeIn 1s;}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+
+.container {
+   /* margin-top: 150px;*/
+   margin-top: 35px;
+}
+
+.blog-post{animation:fadeIn 3s}
+
+
+
+.blog-post {
+    width: 100%;
+    max-width: 98rem;
+    padding: 5rem;
+    background-color: #dbf4ff21;
+    box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: .8rem;
+    margin: 10px;
+}
+
+.blog-post_img {
+    min-width: 30rem;
+    max-width: 30rem;
+    height: 20rem;
+    transform: translateX(-4rem);
+    position: relative;
+}
+
+.blog-post_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .8rem;
+    display: block;
+}
+
+.blog-post_img img::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: .5rem .5rem 3rem 1px rgba(0, 0, 0, 0.5);
+    border-radius: .8rem;
+}
+
+.blog-post_date span {
+    display: block;
+    color: #00000080;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 2rem 0;
+}
+
+.blog-post_title {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 2rem;
+    text-transform: uppercase;
+    color: #0b2135;
+}
+
+.blog-post_text {
+    margin-bottom: 3rem;
+    font-size: 1.3rem;
+    color: #000000b3;
+}
+
+.blog-post_cta {
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #fff;
+    text-decoration: none;
+    border-radius: .8rem;
+    background: linear-gradient(to right, #e07165 0%, #e7d9bc 100%);
+}
+
+.blog-post_cta:hover {
+    background: linear-gradient(to right,  #e7d9bc 0%, #e07165 100%);
+}
+
+@media screen and (max-width: 1068px) {
+    .blog-post {
+        max-width: 80rem;
+    }
+    .blog-post_img {
+        min-width: 30rem;
+        max-width: 30rem;
+    }
+    .container h2 {
+        margin-top: 120px;
+        margin-left: 275px;
+    }
+}
+
+@media screen and (max-width: 868px) {
+    .blog-post {
+        max-width: 70rem;
+    }
+    .container h2 {
+        margin-top: 20px;
+        margin-left: 142px;
+    }
+}
+
+@media screen and (max-width: 823px) {
+    .container h2 {
+        margin-top: 35px;
+        margin-left: 142px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blog-post {
+        padding: 2.5rem;
+        flex-direction: column;
+    }
+    .blog-post_img {
+        min-width: 100%;
+        max-width: 100%;
+        transform: translate(0, -1rem);
+    }
+    .container {
+        margin-top: auto;
+    }
+}
+
+@media screen and(max-width: 572px){ /*poate ca nici nu ai nevoie de asta*/
+    .blog-post_img{
+        min-width: 50%;
+        max-width: 50%;
+
+    }
+
+}
+
+@media screen and(max-width: 415px){/*poate ca nici nu ai nevoie de asta*/
+    .blog-post_img{
+        min-width: 50%;
+        max-width: 50%;
+    }
+
+}
+
+/* Back to top button */
+.back-to-top{
+    position:fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content:center;
+    background-color: rgba(243, 172, 146, 0.9);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+}
+
+.back-to-top span{
+    color:rgba(255,255,255,0.9);
+    font-size:2rem;
+    transition: 0.2s ease-out;
+}
+
+.back-to-top:hover{
+    background-color: rgba(243, 172, 146, 0.9);
+}
+
+.back-to-top:hover span{
+    transform: translateY(-4px);
+
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+
+/*Search container*/
+.searchContainer
+.searchContainer {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    /*gap:0.25rem;
+    text-align: center;
+    margin-bottom: 20px;
+    margin: 0 auto;*/
+    width: 100%;
+ 
+    }
+.searchBar{animation:fadeIn 3s}
+.searchBar{
+    width: 100%;
+    max-width: 300px;
+    height:50px;
+    background-color: rgba(255, 254, 253, 0.526);
+    display:flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+}
+.searchBar input {
+    background: transparent;
+    flex:1;
+    border:0;
+    outline:none;
+    padding: 24px 20px;
+    font-size: 12px;
+}
+
+.searchBar button img{
+    width: 25px;
+}
+
+.searchBar button{
+    border:0;
+    border-radius: 50%; /* il face cerc?*/
+    width: 40px;
+    height: 40px;
+    background:#f0bb92af;
+    cursor: pointer;
+    
+}
+
+
+.searchBar button:hover{
+    width: 45px;
+    height: 45px;
+}
+
+
+
+
+
+
+
+
